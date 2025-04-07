@@ -620,7 +620,7 @@ def benchmark_nsa(batch_size,
     print(f"Profiler latency: {profiler_latency} ms")
 
     # Create input tensors
-    Q = torch.randn((batch_size, seq_len, head_query, dim), dtype=dtype, device='cuda')
+    Q = torch.randn((batch_size, seq_len, head_query, dim), dtype=dtype, device='cuda:0')
     K = torch.randn((batch_size, seq_len, heads, dim), dtype=dtype, device='cuda')
     V = torch.randn((batch_size, seq_len, heads, dim), dtype=dtype, device='cuda')
     out = torch.empty((batch_size, seq_len, head_query, dim), dtype=dtype, device='cuda')
